@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learning Objectives</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    background:
+      linear-gradient(rgba(17,40,80,0.82), rgba(17,40,80,0.82)),
+      url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=80&fit=crop') center/cover no-repeat;
+  }
+
+  .slide {
+    width: 100%;
+    max-width: 1100px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 40px;
+    letter-spacing: -0.3px;
+  }
+
+  /* ── TRACK ── */
+  .track {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    background: rgba(197,220,238,0.18);
+    border: 1px solid rgba(197,220,238,0.3);
+    border-radius: 6px;
+    padding: 16px;
+    gap: 4px;
+  }
+
+  /* ── CARD ── */
+  .card {
+    flex: 1;
+    background: #115099;
+    border-radius: 4px;
+    padding: 20px 18px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .card-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .badge {
+    background: #FFEC00;
+    color: #132A4E;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 4px 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .card-text {
+    font-size: 14px;
+    color: #ffffff;
+    line-height: 1.55;
+    font-weight: 400;
+  }
+
+  .divider {
+    height: 1px;
+    background: rgba(197,220,238,0.25);
+    margin: 16px 0;
+  }
+
+  .card-label {
+    font-size: 15px;
+    font-weight: 700;
+    color: #FFEC00;
+  }
+
+  /* ── ARROW ── */
+  .arrow-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2px;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+    flex-shrink: 0;
+  }
+
+  .arrow-col.visible { opacity: 1; }
+
+  .arrow-col svg {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 700px) {
+    .track { flex-direction: column; }
+    .arrow-col { transform: rotate(90deg); padding: 4px 0; }
+    h1 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="slide">
+  <h1>Learning Objectives</h1>
+
+  <div class="track">
+
+    <!-- Card 1 -->
+    <div class="card" id="card-1">
+      <div>
+        <div class="card-top">
+          <span class="badge">01</span>
+          <p class="card-text">Log time accurately and in real time using Bill4Time</p>
+        </div>
+        <div class="divider"></div>
+      </div>
+      <div class="card-label">Objective One</div>
+    </div>
+
+    <!-- Arrow 1→2 -->
+    <div class="arrow-col" id="arrow-1">
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="14" cy="14" r="13" fill="rgba(255,236,0,0.12)" stroke="#FFEC00" stroke-width="1.5"/>
+        <path d="M10 14h8M15 10.5l3.5 3.5-3.5 3.5" stroke="#FFEC00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card" id="card-2">
+      <div>
+        <div class="card-top">
+          <span class="badge">02</span>
+          <p class="card-text">Select the correct activity code for any task</p>
+        </div>
+        <div class="divider"></div>
+      </div>
+      <div class="card-label">Objective Two</div>
+    </div>
+
+    <!-- Arrow 2→3 -->
+    <div class="arrow-col" id="arrow-2">
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="14" cy="14" r="13" fill="rgba(255,236,0,0.12)" stroke="#FFEC00" stroke-width="1.5"/>
+        <path d="M10 14h8M15 10.5l3.5 3.5-3.5 3.5" stroke="#FFEC00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card" id="card-3">
+      <div>
+        <div class="card-top">
+          <span class="badge">03</span>
+          <p class="card-text">Write clear, compliant time entry descriptions</p>
+        </div>
+        <div class="divider"></div>
+      </div>
+      <div class="card-label">Objective Three</div>
+    </div>
+
+    <!-- Arrow 3→4 -->
+    <div class="arrow-col" id="arrow-3">
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="14" cy="14" r="13" fill="rgba(255,236,0,0.12)" stroke="#FFEC00" stroke-width="1.5"/>
+        <path d="M10 14h8M15 10.5l3.5 3.5-3.5 3.5" stroke="#FFEC00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card" id="card-4">
+      <div>
+        <div class="card-top">
+          <span class="badge">04</span>
+          <p class="card-text">Handle interruptions, multi-matter entries, and OOO placeholders</p>
+        </div>
+        <div class="divider"></div>
+      </div>
+      <div class="card-label">Objective Four</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const sequence = [
+    { id: 'card-1',  delay: 400  },
+    { id: 'arrow-1', delay: 1400 },
+    { id: 'card-2',  delay: 1800 },
+    { id: 'arrow-2', delay: 2800 },
+    { id: 'card-3',  delay: 3200 },
+    { id: 'arrow-3', delay: 4200 },
+    { id: 'card-4',  delay: 4600 },
+  ];
+
+  sequence.forEach(({ id, delay }) => {
+    setTimeout(() => {
+      document.getElementById(id).classList.add('visible');
+    }, delay);
+  });
+</script>
+
+</body>
+</html>
