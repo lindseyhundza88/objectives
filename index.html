@@ -34,6 +34,61 @@
     letter-spacing: -0.3px;
   }
 
+  /* ── SCENARIO BANNER ── */
+  .scenario {
+    background: rgba(197,220,238,0.15);
+    border: 1px solid rgba(197,220,238,0.3);
+    border-radius: 10px;
+    padding: 28px 32px;
+    margin-bottom: 36px;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+
+  .scenario.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .scenario h2 {
+    font-size: 22px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 14px;
+  }
+
+  .scenario p {
+    font-size: 15px;
+    color: #C5DCEE;
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .scenario p strong {
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .scenario .tagline {
+    font-size: 15px;
+    font-weight: 700;
+    color: #FFEC00;
+    margin-bottom: 0;
+  }
+
+  /* objectives section starts hidden */
+  .objectives-section {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .objectives-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   /* ── TRACK ── */
   .track {
     display: flex;
@@ -131,9 +186,19 @@
 <body>
 
 <div class="slide">
-  <h1>Learning Objectives</h1>
 
-  <div class="track">
+  <!-- SCENARIO BANNER -->
+  <div class="scenario" id="scenario">
+    <h2>Sound familiar?</h2>
+    <p>It's 4:58 PM on Friday. A partner storms over: <strong>"Your time entries from last Tuesday are blank. I can't bill the client."</strong> You try to reconstruct four hours of work from memory, calls, research, a motion draft, but the details are already fuzzy. The client gets billed less. The firm eats the difference. You stay late.</p>
+    <p class="tagline">This training exists so that never happens again.</p>
+  </div>
+
+  <!-- OBJECTIVES -->
+  <div class="objectives-section" id="objectives-section">
+    <h1>Learning Objectives</h1>
+
+    <div class="track">
 
     <!-- Card 1 -->
     <div class="card" id="card-1">
@@ -207,18 +272,32 @@
       <div class="card-label">Objective Four</div>
     </div>
 
-  </div>
-</div>
+  </div><!-- /track -->
+  </div><!-- /objectives-section -->
+</div><!-- /slide -->
 
 <script>
+  // Step 1: scenario fades in immediately
+  setTimeout(() => {
+    document.getElementById('scenario').classList.add('visible');
+  }, 300);
+
+  // Step 2: after 5s reading time, objectives section fades in
+  const READING_PAUSE = 5500;
+
+  setTimeout(() => {
+    document.getElementById('objectives-section').classList.add('visible');
+  }, READING_PAUSE);
+
+  // Step 3: cards and arrows animate in after objectives appear
   const sequence = [
-    { id: 'card-1',  delay: 400  },
-    { id: 'arrow-1', delay: 1400 },
-    { id: 'card-2',  delay: 1800 },
-    { id: 'arrow-2', delay: 2800 },
-    { id: 'card-3',  delay: 3200 },
-    { id: 'arrow-3', delay: 4200 },
-    { id: 'card-4',  delay: 4600 },
+    { id: 'card-1',  delay: READING_PAUSE + 600  },
+    { id: 'arrow-1', delay: READING_PAUSE + 1600 },
+    { id: 'card-2',  delay: READING_PAUSE + 2000 },
+    { id: 'arrow-2', delay: READING_PAUSE + 3000 },
+    { id: 'card-3',  delay: READING_PAUSE + 3400 },
+    { id: 'arrow-3', delay: READING_PAUSE + 4400 },
+    { id: 'card-4',  delay: READING_PAUSE + 4800 },
   ];
 
   sequence.forEach(({ id, delay }) => {
